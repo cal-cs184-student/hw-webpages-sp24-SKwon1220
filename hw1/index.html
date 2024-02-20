@@ -6,26 +6,29 @@
 		<h2>Overview</h2>
 
 		<h2>Task 1</h2>
-		We rasterize triangles by determining which pixels on a 2D screen are covered by the triangle and then
-		filling in those pixels with the desired color. To begin, we define three points and a normal vector, 
-		which are used for a given triangle. We then check the winding order of vertices to ensure they are in 
-		a particular order, ensuring consistent orientation for future computations. Afterwards, we compute 
-		the edges of the triangle and cross product between the normal vector and each edge vector, which are used
-		to determine the orientation of sample points. The bounding box is subsequently calculated using the vertices
-		of the triangle to minimize the number of pixels to be processed. We then iterate over each pixel in the
-		bounding box, sampling the center point of the pixel and performing the in-triangle test using the dot product,
-		filling in the pixel with the specified color if it passes the in-triangle test. This process is repeated until
-		the image is appropriately colored. 
+		<p>
+			We rasterize triangles by determining which pixels on a 2D screen are covered by the triangle and then
+			filling in those pixels with the desired color. To begin, we define three points and a normal vector, 
+			which are used for a given triangle. We then check the winding order of vertices to ensure they are in 
+			a particular order, ensuring consistent orientation for future computations. Afterwards, we compute 
+			the edges of the triangle and cross product between the normal vector and each edge vector, which are used
+			to determine the orientation of sample points. The bounding box is subsequently calculated using the vertices
+			of the triangle to minimize the number of pixels to be processed. We then iterate over each pixel in the
+			bounding box, sampling the center point of the pixel and performing the in-triangle test using the dot product,
+			filling in the pixel with the specified color if it passes the in-triangle test. This process is repeated until
+			the image is appropriately colored. 
+		</p>
+
+		<p> My algorithm is not worse than one that checks each sample within the bounding box of the triangle because it iterates
+			through each pixel that's within the bounding box and only samples it once to determine whether it is in the triangle or not.
+			In the worst case, the runtime is equal to the checking every sample in the triangle.
+		</p> 
 
 
-		My algorithm is not worse than one that checks each sample within the bounding box of the triangle because it iterates
-		through each pixel that's within the bounding box and only samples it once to determine whether it is in the triangle or not.
-		In the worst case, the runtime is equal to the checking every sample in the triangle. 
-
-
-		Here's an interesting part of test4.svg that shows how the edges of the blue triangle aren't entirely smooth and consistent.
-		As seen from the image, there are places in the edge where they have a break of either one or two tiles. 
-		<img src = "Downloads/screenshot_2-19_23-12-49.png">
+		<p>Here's an interesting part of test4.svg that shows how the edges of the blue triangle aren't entirely smooth and consistent.
+			As seen from the image, there are places in the edge where they have a break of either one or two tiles.
+		</p> 
+		<img src = "/Downloads/screenshot_2-19_23-12-49.png">
 
 
 		<h2>Task 2</h2>
